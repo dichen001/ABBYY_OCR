@@ -18,11 +18,11 @@ from AbbyyOnlineSdk import *
 
 processor = AbbyyOnlineSdk()
 
-if "ABBYY_APPID" in os.environ:
-	processor.ApplicationId = os.environ["ABBYY_APPID"]
+#if "ABBYY_APPID" in os.environ:
+processor.ApplicationId = 'Email Signature Finder and Parser'#os.environ["ABBYY_APPID"]
 
-if "ABBYY_PWD" in os.environ:
-	processor.Password = os.environ["ABBYY_PWD"]
+#if "ABBYY_PWD" in os.environ:
+processor.Password = 'rxawhK5ICxHyNxn1FtLldc1j'#os.environ["ABBYY_PWD"]
 
 # Proxy settings
 if "http_proxy" in os.environ:
@@ -37,7 +37,8 @@ def recognizeFile( filePath, resultFilePath, language, outputFormat ):
 	settings = ProcessingSettings()
 	settings.Language = language
 	settings.OutputFormat = outputFormat
-	task = processor.ProcessImage( filePath, settings )
+	#task = processor.ProcessImage( filePath, settings )
+	task = processor.processBusinessCard( filePath, settings )
 	if task == None:
 		print "Error"
 		return
@@ -83,12 +84,12 @@ group.add_argument( '-rtf', action='store_const', const='rtf', dest='format' )
 group.add_argument( '-docx', action='store_const', const='docx', dest='format' )
 group.add_argument( '-xml', action='store_const', const='xml', dest='format' )
 
-args = parser.parse_args()
+#args = parser.parse_args()
 
-sourceFile = args.sourceFile
-targetFile = args.targetFile
-language = args.language
-outputFormat = args.format
+sourceFile = './input/email4.png'#args.sourceFile
+targetFile = './output/result4.vcf'#args.targetFile
+language = 'English'#args.language
+outputFormat = 'vCard'#args.format
 
 if os.path.isfile( sourceFile ):
 	recognizeFile( sourceFile, targetFile, language, outputFormat )	

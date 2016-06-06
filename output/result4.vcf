@@ -1,0 +1,19 @@
+BEGIN:VCARD
+VERSION:2.1
+TEL;CHARSET=utf-8;WORK;VOICE:9192971815
+TEL;CHARSET=utf-8;WORK;FAX:9194153099
+TEL;CHARSET=utf-8;CELL;VOICE:9193899584
+EMAIL;CHARSET=utf-8:russell.giroux@lexisnexis.com
+N;CHARSET=utf-8:Giroux;Russell;;;
+FN;CHARSET=utf-8:Russell Giroux
+ORG;CHARSET=utf-8:LexisNexis InterAction
+TITLE;CHARSET=utf-8:Associate Product Manager
+NOTE;ENCODING=QUOTED-PRINTABLE;CHARSET=utf-8:Russell Giroux=0D=0A=
+Associate Product Manager=0D=0A=
+LexisNexis InterAction=0D=0A=
+Email: russell.giroux@lexisnexis.com=0D=0A=
+Office: 919.297.1815=0D=0A=
+Cell: 919.389.9584=0D=0A=
+Fax: 919.415.3099
+REV:06062016211538
+END:VCARD

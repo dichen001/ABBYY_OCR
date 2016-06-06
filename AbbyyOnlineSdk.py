@@ -58,6 +58,26 @@ class AbbyyOnlineSdk:
 		task = self.DecodeResponse( response )
 		return task
 
+
+	def processBusinessCard ( self, filePath, settings ):
+		urlParams = urllib.urlencode({
+			"language" : settings.Language,
+			"exportFormat" : settings.OutputFormat
+			})
+		requestUrl = self.ServerUrl + "processBusinessCard?" + urlParams
+
+		bodyParams = { "file" : open( filePath, "rb" )  }
+		request = urllib2.Request( requestUrl, None, self.buildAuthInfo() )
+		response = self.getOpener().open(request, bodyParams).read()
+		if response.find( '<Error>' ) != -1 :
+			return None
+		# Any response other than HTTP 200 means error - in this case exception will be thrown
+
+		# parse response xml and extract task ID
+		task = self.DecodeResponse( response )
+		return task
+
+
 	def GetTaskStatus( self, task ):
 		urlParams = urllib.urlencode( { "taskId" : task.Id } )
 		statusUrl = self.ServerUrl + "getTaskStatus?" + urlParams
